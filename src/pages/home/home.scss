@@ -1,0 +1,30 @@
+page-home {
+    .post-item {
+        padding: 0;
+        &.item-block > .item-inner {
+            padding-right: 0;
+            .input-wrapper {
+                & > .label {
+                    margin: 0;
+                }
+            }
+        }
+        & .post-card {
+            width: 100%;
+            & .item-block {
+                ion-avatar {
+                    margin: 8px 8px 8px 8px;
+                }
+            }
+        }
+        .font-color {
+            color: #999;
+        }
+        .card-content {
+            padding: 10px 10px;
+            & p, & div, & span {
+                color: #424242;
+            }
+        }
+    }
+}

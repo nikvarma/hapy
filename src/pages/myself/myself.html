@@ -1,0 +1,65 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      User Profile
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list class="user-profile">
+    <img class="img-auto" src="assets/images/posts/fall-autumn-red-season.jpg">
+
+    <ion-item>
+      <ion-label color="primary">Full Name:</ion-label>
+      <ion-input type="text" placeholder="Alen, D'melo" min="5" max="15"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" fixed>Last Name:</ion-label>
+      <ion-input type="text" placeholder="D'melo" min="5" max="15" autocomplete="off"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" fixed>First Name:</ion-label>
+      <ion-input type="text" placeholder="Alen" min="5" max="15" autocomplete="off"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Phone Number:</ion-label>
+      <ion-input type="number" placeholder="8898937976" min="5" max="15" autocomplete="off"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Email ID:</ion-label>
+      <ion-input type="email" placeholder="alen.demelo@hapy.co.in" min="5" max="20" autocomplete="off"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Password:</ion-label>
+      <ion-input type="password" placeholder="********" min="5" max="15" autocomplete="off"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>State:</ion-label>
+      <ion-input type="text" autocomplete="off"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>City:</ion-label>
+      <ion-input type="text" autocomplete="off"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>About Myself:</ion-label>
+      <ion-textarea placeholder="I am cool guy. I love to meet new poeples."></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

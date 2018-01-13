@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title>Calls</ion-title> -->
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of callList">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+</ion-content>

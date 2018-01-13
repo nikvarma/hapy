@@ -1,0 +1,111 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+$primary-bg-color: #006064;
+$secondary-bg-color: #0cc2d2;
+$primary-font-color: #ffffff;
+$secondary-font-color: #333;
+
+.toolbar-background, .tabbar.show-tabbar {
+    background-color: $secondary-bg-color;
+}
+
+.tabbar.show-tabbar {
+    & .tab-button[aria-selected=true] {
+        color: $primary-font-color;
+        & .tab-button-icon {
+            color: inherit;
+        }
+    }
+    & .tab-button {
+        .tab-button-icon {
+            color: rgb(15, 138, 148);
+        }
+    }
+}
+
+.toolbar-title {
+    color: $primary-font-color;
+}
+
+.online-green {
+    color: green;
+}
+
+.font-xsmall {
+    font-size: .9rem;
+}
+
+.font-small {
+    font-size: 1.1rem !important;
+}
+
+.sup-01 {
+    top: -.1em;
+}
+
+.img-auto {
+    width: auto;
+    min-width: 100%;
+    height: auto;
+    max-height: 240px;
+}
+
+.font-medium {
+    font-size: 1.3rem !important;
+}
+
+.call-bg-color {
+    background-color: #1ac0e2;
+}
+
+.chat-bg-color {
+    background-color: #0fc5cc;
+}
+
+.post-icon-color {
+    color: #38a1e1;
+}
+
+.post-icon-like {
+    color: #ef0d49;
+}
+
+.post-fab {
+    background-color: #0ac3de;
+}
+
+.back-button.bar-button-default {
+    & .back-button-icon {
+        color: white;
+    }
+}
+
+.post-icon-share {
+    color: #f53d3d;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.margin-0 {
+    margin: 0;
+}
+.padding-0 {
+    padding: 0;
+}

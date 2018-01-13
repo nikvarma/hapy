@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div class="post-item padding-0">
+      <ion-card class="post-card margin-0">
+        <!--  -->
+        <ion-item-sliding>
+          <ion-item class="padding-0">
+            <ion-avatar item-start>
+              <img src="assets/images/users/girl-icon.png" />
+            </ion-avatar>
+            <h2>Marty McFly</h2>
+            <p>
+              <ion-icon name="locate"></ion-icon> Mumbai
+            </p>
+            <ion-col item-end text-right>
+              <!-- center text-center -->
+              <button class="text-capitalize padding-0 font-color" ion-button icon-left clear>
+                <ion-icon name="time"></ion-icon>
+                <div class="font-small">11h ago</div>
+              </button>
+              <!-- <ion-note class="time-ago">
+                11h ago
+              </ion-note> -->
+            </ion-col>
+          </ion-item>
+
+          <ion-item-options side="left">
+            <button ion-button class="chat-bg-color" (click)="chat()">
+              <!-- color="primary" -->
+              <ion-icon name="chatbubbles"></ion-icon>
+              Chat
+            </button>
+            <button ion-button class="call-bg-color" (click)="call()">
+              <!-- color="secondary" -->
+              <ion-icon name="call"></ion-icon>
+              Call
+            </button>
+          </ion-item-options>
+          <ion-item-options side="right">
+            <button ion-button class="call-bg-color">
+              <ion-icon name="more"></ion-icon>
+              More
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <!--  -->
+
+
+        <!-- <ion-item class="padding-0">
+        <ion-avatar item-start>
+          <img src="assets/images/users/girl-icon.png" />
+        </ion-avatar>
+        <h2>Marty McFly</h2>
+        <p>November 5, 1955</p>
+      </ion-item> -->
+
+        <!-- <img src="assets/images/posts/fall-autumn-red-season.jpg" /> -->
+        <ion-img width="100%" height="243" src="assets/images/posts/fall-autumn-red-season.jpg"></ion-img>
+        <ion-card-content>
+          <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!
+            Whoa. This is heavy.</p>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col text-center>
+            <button class="text-capitalize padding-0 font-color" ion-button icon-left clear small>
+              <ion-icon name="medal" class="post-icon-like"></ion-icon>
+              <div class="font-small">12 Likes</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button class="text-capitalize padding-0 font-color" ion-button icon-left clear small>
+              <ion-icon name="text" class="post-icon-color"></ion-icon>
+              <div class="font-small">4 Comments</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <!-- center text-center -->
+            <button class="text-capitalize padding-0 font-color" ion-button icon-left clear small>
+              <ion-icon name="eye" class="post-icon-color"></ion-icon>
+              <div class="font-small">11 Views</div>
+            </button>
+            <!-- <ion-note class="time-ago">
+            11h ago
+          </ion-note> -->
+          </ion-col>
+          <ion-col>
+            <button class="text-capitalize padding-0 font-color" ion-button icon-left clear small>
+              <ion-icon name="share" class="post-icon-share"></ion-icon>
+              <div class="font-small">4 Share</div>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-fab right bottom #fab>
+    <button ion-fab mini class="post-fab">
+      <ion-icon name="arrow-dropup"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="fabItems('settings', fab)">
+        <ion-icon name="cog" title="Settings"></ion-icon>
+      </button>
+      <button ion-fab (click)="fabItems('contacts', fab)">
+        <ion-icon name="contacts" title="Contacts"></ion-icon>
+      </button>
+      <button ion-fab (click)="fabItems('notifications', fab)">
+        <ion-icon name="notifications" title="Notifications"></ion-icon>
+      </button>
+      <button ion-fab (click)="fabItems('posts', fab)">
+        <ion-icon name="megaphone" title="Post"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
