@@ -1,3 +1,90 @@
 page-calls-callbox {
+    .calling-bg {
+        background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+        background-attachment: fixed;
+    }
+    .bg-transparent {
+        background-color: transparent;
+    }
+    .user-image {
+        .item-inner {
+            .input-wrapper {
+                background-color: white;
+                width: auto;
+                margin: 30% auto 0px auto;
+                max-width: 30%;
+                text-align: center;
+                border-color: white;
+                border-radius: 55px;
+                ion-thumbnail {
+                    display: inline-block;
+                    img {
+                        display: inline;
+                    }
+                }
+            }
+        }
+        
+    }
+    .user-name {
+        font-size: 2rem;
+        font-weight: 400;
+        color: white;
+    }
 
+    .calling-pickup-end {
+        line-height: 5em;
+        height: 5em;
+        margin: 30% auto;
+        width: 80%;
+        .call-control {
+            display: inline-block;
+            border-radius: 35px;
+            width: 26%;
+            margin: auto 10%;
+            color: white;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.14);
+            background-attachment: fixed;
+            &.call {
+                background-color: #0dd448;
+            }
+            &.end {
+                background-color: #ef086a;
+            }
+        }
+    }
+
+    .ripple {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        $color: #65ff78;
+        .circle-ripple {
+            background-color: #35ffc3;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            animation: ripple 0.7s linear infinite;
+          }
+          
+          @keyframes ripple {
+            0% {
+              box-shadow: 0 0 0 0 rgba($color, 0.3),
+                          0 0 0 1em rgba($color, 0.3),
+                          0 0 0 3em rgba($color, 0.3),
+                          0 0 0 5em rgba($color, 0.3);
+            }
+            100% {
+              box-shadow: 0 0 0 1em rgba($color, 0.3),
+                          0 0 0 3em rgba($color, 0.3),
+                          0 0 0 5em rgba($color, 0.3),
+                          0 0 0 8em rgba($color, 0);
+            }
+          }
+    }
 }
+
+
+
+
+

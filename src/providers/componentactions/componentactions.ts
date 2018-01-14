@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ItemSliding } from 'ionic-angular/components/item/item-sliding';
 import { FabContainer, LoadingController } from 'ionic-angular';

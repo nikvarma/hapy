@@ -7,6 +7,7 @@ import { ContactPage } from '../contact/contact';
 import { ChatsMessageboxPage } from '../chats-messagebox/chats-messagebox';
 import { CallsCallboxPage } from '../calls-callbox/calls-callbox';
 import { ComponentactionsProvider } from '../../providers/componentactions/componentactions';
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +15,8 @@ import { ComponentactionsProvider } from '../../providers/componentactions/compo
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private componentAction: ComponentactionsProvider) {
+  constructor(public navCtrl: NavController, private modalCtrl: ModalController,
+    private componentAction: ComponentactionsProvider) {
 
   }
 
@@ -34,7 +36,8 @@ export class HomePage {
   }
 
   chat(): void {
-    this.navCtrl.push(ChatsMessageboxPage, { "uid": "1", "uname": "User Window" });
+    let chatModal = this.modalCtrl.create(ChatsMessageboxPage, { "uid": "1", "uname": "User Window" });
+    chatModal.present();
   }
 
   call(): void {

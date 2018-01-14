@@ -1,3 +1,109 @@
 page-chats-messagebox {
-
+    .chat-box {
+        &.chat-box-control{
+            .chat-control-fixed {
+                font-size: 1.8rem;
+                min-height: 40px;
+            }
+        }
+    }
+    .item.chat-box-bubble {
+        background-color: transparent;
+        & .item-inner {
+            padding: 0;
+            & > div.input-wrapper {
+                & > .label {
+                    margin: 13px 8px 13px 8px;
+                }
+            }
+        }
+        & .bubble {
+            background-color: white;
+            padding-bottom: 5px;
+            &:before {
+                background-color: white;
+            }
+            .chat-box-title {
+                position: relative;
+                top: -15px;
+            }
+        }
+        & ion-avatar {
+            display: inline-block;
+            margin: 0;
+            img {
+                display: inline-block;
+                margin: 0;
+                width: 35px;
+                height: 35px;
+            }
+        }
+        & .chat-box-message {
+            position: relative;
+            top: -10px;
+            text-indent: 44px;
+        }
+        & .chat-footer {
+            .chat-time{
+                color: #424242;
+                .time-text {
+                    position: relative;
+                    display: inline;
+                    top: -2px;
+                }
+            }
+            .chat-status {
+                float: right;
+                color: #424242;
+            }
+        }
+    }
+    .chat {
+    }
+    
+    .bubble{
+        background-color: #F2F2F2;
+        border-radius: 5px;
+        box-shadow: 0 0 6px #B2B2B2;
+        display: inline-block;
+        padding: 10px 18px;
+        position: relative;
+        vertical-align: top;
+    }
+    
+    .bubble::before {
+        background-color: #F2F2F2;
+        content: "\00a0";
+        display: block;
+        height: 16px;
+        position: absolute;
+        top: 11px;
+        transform:             rotate( 29deg ) skew( -35deg );
+            -moz-transform:    rotate( 29deg ) skew( -35deg );
+            -ms-transform:     rotate( 29deg ) skew( -35deg );
+            -o-transform:      rotate( 29deg ) skew( -35deg );
+            -webkit-transform: rotate( 29deg ) skew( -35deg );
+        width:  20px;
+    }
+    
+    .me {
+        float: left;   
+        margin: 5px 45px 5px 20px;         
+    }
+    
+    .me::before {
+        box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+        left: -9px;           
+    }
+    
+    .you {
+        float: right;    
+        margin: 5px 20px 5px 45px;         
+    }
+    
+    .you::before {
+        box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+        right: -9px;    
+    }
+    
 }

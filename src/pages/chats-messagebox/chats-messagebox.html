@@ -1,18 +1,86 @@
-<!--
-  Generated template for the ChatsMessageboxPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>{{uname}}</ion-title>
-  </ion-navbar>
+    <!-- <ion-title>{{uname}}</ion-title> -->
 
+    <ion-item (click)="userInfo()" class="padding-0 chat-header">
+      <ion-avatar item-start>
+        <img src="assets/images/users/girl-icon.png" />
+      </ion-avatar>
+      <h2>
+        Alen, D'melo
+      </h2>
+      <span class="font-medium">Online</span>
+      <button class="action-btn" (click)="call()" ion-button clear item-end>
+        <ion-icon name="call"></ion-icon>
+      </button>
+      <button class="action-btn" ion-button clear item-end>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismissModal()">
+        <ion-icon item-left name="close" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
+<ion-content class="bg-f1f1f1" (tap)="tapEvent($event)">
+  <ion-list>
+    <ion-item text-wrap no-lines class="chat-box-bubble padding-0">
+      <div class="chat">
+        <div class="bubble me">
+          <ion-avatar item-start>
+            <img src="assets/images/users/girl-icon.png">
+          </ion-avatar>
+          <span class="chat-box-title">Alen D'melo</span>
+          <div class="chat-box-message">
+            Hi
+          </div>
+        </div>
+        <div class="bubble you">
+          <ion-avatar item-start>
+            <img src="assets/images/users/girl-icon.png">
+          </ion-avatar>
+          <span class="chat-box-title">Alen D'melo</span>
+          <div class="chat-box-message">
+            Hi. I'm an expandeable chat box with box shadow. How are you? I expand horizontally and vertically, as you can see here.
+          </div>
+          <div class="chat-footer">
+            <span class="chat-time">
+              <ion-icon name="time"></ion-icon>
+              <span class="font-small time-text">09:00 AM</span>
+            </span>
+            <span class="chat-status">
+              <ion-icon name="eye"></ion-icon>
+            </span>
+          </div>
+        </div>
+      </div>
 
-<ion-content padding>
-  User ID: {{ uid }}
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <!-- <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar> -->
+  <ion-list class="margin-0">
+    <ion-item class="chat-box chat-box-control">
+      <button ion-button item-start clear class="chat-control-fixed" (click)="selectOption()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+
+      <ion-textarea placeholder="Say hello.." #chatMessageBox [(ngModel)]="chatBox.message" class="font-medium chat-message-box"></ion-textarea>
+
+      <button ion-button item-end clear class="chat-control-fixed">
+        <ion-icon name="send"></ion-icon>
+      </button>
+      <button ion-button item-end clear class="chat-control-fixed">
+        <ion-icon name="microphone"></ion-icon>
+      </button>
+
+    </ion-item>
+  </ion-list>
+</ion-footer>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChatsMessageboxPage } from '../chats-messagebox/chats-messagebox';
 import { CallsCallboxPage } from '../calls-callbox/calls-callbox';
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 
 /**
  * Generated class for the ChatsPage page.
@@ -19,8 +20,9 @@ import { CallsCallboxPage } from '../calls-callbox/calls-callbox';
 export class ChatsPage {
   chatList: any[] = [];
   searchQuery: string = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
     this.initializeItems();
+
   }
 
   initializeItems() {
@@ -46,7 +48,8 @@ export class ChatsPage {
 
 
   chat(): void {
-    this.navCtrl.push(ChatsMessageboxPage, {"uid":"1", "uname": "User Window"});
+    let chatModal = this.modalCtrl.create(ChatsMessageboxPage, {"uid":"1", "uname": "User Window"});
+    chatModal.present();
   }
 
   call(): void {

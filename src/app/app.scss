@@ -58,6 +58,72 @@ $secondary-font-color: #333;
     top: -.1em;
 }
 
+.bg-f1f1f1 {
+    background-color: #f1f1f1;
+}
+
+.chat-header {
+    background-color: transparent;
+    &.item {
+        ion-avatar {
+            margin: 8px 8px 8px 8px;
+        }
+        .item-inner {
+            border-bottom: 0;
+            .label {
+                color: #ffffff;
+                margin: 0;
+                & h2 {
+                    font-size: 1.5rem;
+                }
+            }
+            .action-btn {
+                &.item-button {
+                    font-size: 2rem;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+$actionsheet-color: #424242;
+.image {
+    &.image-color {
+        color: $actionsheet-color;
+        & ion-icon {
+            color: #32db64;
+        }
+    }
+}
+
+.navigate {
+    &.navigate-color {
+        color: $actionsheet-color;
+        & ion-icon {
+            color: #de1a3d;
+        }
+    }
+}
+
+.contact {
+    &.contact-color {
+        color: $actionsheet-color;
+        & ion-icon {
+            color: #ea0c71;
+        }
+    }
+}
+
+.attachement {
+    &.attach-color {
+        color: $actionsheet-color;
+        & ion-icon {
+            color: #42c3eb;
+        }
+    }
+}
+
 .img-auto {
     width: auto;
     min-width: 100%;

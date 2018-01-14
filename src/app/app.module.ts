@@ -20,7 +20,7 @@ import { PostsPageModule } from '../pages/posts/posts.module';
 import { ChatsMessageboxPageModule } from '../pages/chats-messagebox/chats-messagebox.module';
 import { CallsCallboxPageModule } from '../pages/calls-callbox/calls-callbox.module';
 import { ComponentactionsProvider } from '../providers/componentactions/componentactions';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
