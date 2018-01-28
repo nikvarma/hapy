@@ -146,8 +146,13 @@ export class PostsPage {
         {
           text: "Gallary",
           handler: () => {
-            let media = this.modalCtrl.create(SelectmediasPage);
+            let media = this.modalCtrl.create(SelectmediasPage, {
+              mediatype: "images"
+            });
             media.present();
+            media.onDidDismiss(data => {
+              alert(data);
+            });
           }
         }
       ]

@@ -8,7 +8,7 @@
 
 
 <ion-content>
-  <ion-grid>
+  <ion-grid *ngIf="isImageActive">
     <ion-row>
       <ion-col *ngFor="let media of mediaList; let i = index" no-padding col-4 class="media-box">
         <img src="{{ media.image }}" class="img" />
