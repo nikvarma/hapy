@@ -1,0 +1,66 @@
+page-auth-login {
+    .item input::placeholder, .login 
+    .item .item-inner input.text-input {
+        color: white;
+        font-size: 1.3rem;
+    }
+    ion-select {
+        .select-text {
+            font-size: 1.3rem;
+            color: white;
+            text-align: right;
+        }
+    }
+    .select-md .select-icon {
+        & .select-icon-inner {
+            color: white;
+        }
+    }
+    .login {
+        background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+        .login-section, .singup-section {
+            color: white;
+            
+            &.login-auth, &.singup-auth {
+                & .login-form, & .singup-form {
+                    width: auto;
+                    max-width: calc(100% - 80px);
+                    margin: 0 auto;
+                    & .item {
+                        & .item-inner {
+                            border-bottom-color: white;                            
+                        }
+                        padding-left: 0;
+                        background-color: transparent;
+                        & ion-label.label {
+                            color: white;
+                        }
+                    }
+                    & .login-button {
+                        height: 4.6rem;
+                        // margin: 15% auto;
+                        background-color: #19c2c8;
+                    }
+                }
+            }
+            &.login-logo {
+                & .logo {
+                    max-width: 120px;
+                    width: auto;
+                    max-height: 115px;
+                    height: auto;
+                    padding: .5em;
+                    margin: 0 auto;
+                    border-radius: 65px;
+                    background-color: white;
+                    overflow: hidden;
+                    text-align: center;
+                    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+                    & img {
+                        border-radius: 45px;
+                    }
+                }
+            }
+        }
+    }
+}

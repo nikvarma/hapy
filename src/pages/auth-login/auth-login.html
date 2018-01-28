@@ -1,0 +1,185 @@
+<ion-header *ngIf="showedit">
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button color="light" (click)="openForm('login')">
+        Edit
+      </button>
+    </ion-buttons>
+    <!-- <ion-buttons end>
+      <button ion-button color="light" (click)="openForm('signup')">
+        Sign Up
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides class="login">
+    <!-- pager -->
+    <ion-slide>
+      <div class="login-section login-logo" padding-vertical>
+        <div class="logo">
+          <img src="./assets/icon/logo.svg" />
+        </div>
+        <h2>HAPY</h2>
+      </div>
+      <div class="login-section login-auth">
+        <div class="login-form">
+          <form [formGroup]="loginForm" (ngSubmit)="hapyLogin()">
+            <ion-item>
+              <ion-label>Country</ion-label>
+              <ion-select formControlName="country">
+                <ion-option value="{{ c.callingCodes || null }}" *ngFor="let c of countryItems">
+                  + {{ c.callingCodes }} - {{ c.name }}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Mobile Number</ion-label>
+              <ion-input type="number" formControlName="mobilenumber" [(ngModel)]="mobilenumber"></ion-input>
+            </ion-item>
+            <ion-buttons padding-vertical>
+              <button full ion-button class="login-button" [disabled]="!loginForm.valid">
+                Send Code
+              </button>
+            </ion-buttons>
+          </form>
+        </div>
+        <ion-grid>
+          <ion-row padding-bottom>
+            <ion-col class="font-medium" col-12>
+              Do more with HAPY
+            </ion-col>
+          </ion-row>
+          <ion-row padding-bottom>
+            <ion-col col-3>
+              <ion-icon name="pin" color="light"></ion-icon>
+              <div class="font-medium">Location</div>
+            </ion-col>
+            <ion-col col-3>
+              <ion-icon name="call" color="light"></ion-icon>
+              <div class="font-medium">Voice Call</div>
+            </ion-col>
+            <ion-col col-3>
+              <ion-icon name="chatbubbles" color="light"></ion-icon>
+              <div class="font-medium">Chat</div>
+            </ion-col>
+            <ion-col col-3>
+              <ion-icon name="videocam" color="light"></ion-icon>
+              <div class="font-medium">Video Call</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="singup-section singup-auth">
+        <div class="singup-form">
+          <form [formGroup]="singupForm" (ngSubmit)="hapySignUp()">
+            <ion-item>
+              <ion-label>Sign-Up Using</ion-label>
+              <ion-select formControlName="signupwith" #signupwith (ionChange)="signupUsing(signupwith)" interface="action-sheet">
+                <ion-option value="Email-ID" selected="true">Email-ID</ion-option>
+                <ion-option value="Mobile Number">Mobile Number</ion-option>
+                <ion-option value="Google Account">Google Account</ion-option>
+                <ion-option value="Facebook Account">Facebook Account</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item *ngIf="isCountryActive">
+              <ion-label>Country</ion-label>
+              <ion-select formControlName="country" #country>
+                <ion-option value="{{ c?.callingCodes[0] }}" *ngFor="let c of countryItems">
+                  + {{ c?.callingCodes[0] }} - {{ c.name }}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label fixed>Username</ion-label>
+              <ion-input type="{{ usernametype }}" placeholder="{{ signupusingtext }}" formControlName="username"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label fixed>Name</ion-label>
+              <ion-input type="text" aria-placeholder="Name" placeholder="Name" formControlName="name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label fixed>Age</ion-label>
+              <ion-input type="number" aria-placeholder="Age" placeholder="Age" formControlName="age"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Gender</ion-label>
+              <ion-select formControlName="gender">
+                <ion-option value="female">Female</ion-option>
+                <ion-option value="male">Male</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-buttons padding-vertical>
+              <button full ion-button class="login-button" [disabled]="!singupForm.valid">
+                Sign Up
+              </button>
+            </ion-buttons>
+          </form>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+
+      <div class="login-section login-logo" padding-vertical>
+        <div class="logo">
+          <img src="./assets/icon/logo.svg" />
+        </div>
+        <h2>HAPY</h2>
+      </div>
+      <div class="singup-section singup-auth">
+        <div class="singup-form">
+          <form [formGroup]="verificationcodeForm" (ngSubmit)="verificationcodeSignUp()">
+            <ion-item>
+              <ion-label stacked>Mobile Number</ion-label>
+              <ion-input type="number" [readonly]="true" [disabled]="true" [ngModelOptions]="{standalone: true}" [(ngModel)]="verifymobilecode"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Verification Code</ion-label>
+              <ion-input type="text" formControlName="verificationcode" [attr.maxlength]="6" [attr.minlength]="6"></ion-input>
+            </ion-item>
+            <ion-buttons padding-vertical>
+              <button full ion-button class="login-button" [disabled]="!verificationcodeForm.valid">
+                Verifiy Code
+              </button>
+            </ion-buttons>
+          </form>
+        </div>
+
+        <ion-grid>
+          <ion-row padding-bottom>
+            <ion-col class="font-medium" col-12>
+              Do more with HAPY
+            </ion-col>
+          </ion-row>
+          <ion-row padding-bottom>
+            <ion-col col-3>
+              <ion-icon name="pin" color="light"></ion-icon>
+              <div class="font-medium">Location</div>
+            </ion-col>
+            <ion-col col-3>
+              <ion-icon name="call" color="light"></ion-icon>
+              <div class="font-medium">Voice Call</div>
+            </ion-col>
+            <ion-col col-3>
+              <ion-icon name="chatbubbles" color="light"></ion-icon>
+              <div class="font-medium">Chat</div>
+            </ion-col>
+            <ion-col col-3>
+              <ion-icon name="videocam" color="light"></ion-icon>
+              <div class="font-medium">Video Call</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

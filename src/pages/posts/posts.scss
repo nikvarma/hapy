@@ -1,3 +1,25 @@
 page-posts {
+    .button-pad-09 ion-buttons {
+        padding: 0 .9em;
+    }
+    .bg-toolbar .toolbar-background {
+        background-color: white;
+    }
+    .post-footer-icon {
+        ion-icon {
+            padding: 0 0.3em;
+        }
+    }
 
+    [contenteditable=true]:empty:before{
+        content: attr(placeholder);
+        display: block; /* For Firefox */
+      }
+
+    .item {
+        border-bottom: 1px solid #f1f1ff;
+        & .avatar {
+            margin: 8px 8px 8px 8px;
+        }
+    }
 }

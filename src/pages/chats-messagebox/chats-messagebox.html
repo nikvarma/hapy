@@ -74,7 +74,7 @@
 
       <ion-textarea placeholder="Say hello.." #chatMessageBox [(ngModel)]="chatBox.message" class="font-medium chat-message-box"></ion-textarea>
 
-      <button ion-button item-end clear class="chat-control-fixed">
+      <button ion-button item-end clear (click)="sendChat($event)" class="chat-control-fixed">
         <ion-icon name="send"></ion-icon>
       </button>
       <button ion-button item-end clear class="chat-control-fixed">

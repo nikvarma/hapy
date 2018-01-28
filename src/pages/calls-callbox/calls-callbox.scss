@@ -37,19 +37,29 @@ page-calls-callbox {
         height: 5em;
         margin: 30% auto;
         width: 80%;
+        .call-box {
+            width: 40%;
+            display: inline-block;
+        }
+        .call-control-text {
+            color: white;
+            display: block;
+            font-size: 1.2em;
+        }
         .call-control {
             display: inline-block;
             border-radius: 35px;
-            width: 26%;
+            // width: 26%;
             margin: auto 10%;
             color: white;
             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.14);
             background-attachment: fixed;
+            
             &.call {
                 background-color: #0dd448;
             }
             &.end {
-                background-color: #ef086a;
+                background-color: #f53d3d;
             }
         }
     }

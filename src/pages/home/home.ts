@@ -8,12 +8,14 @@ import { ChatsMessageboxPage } from '../chats-messagebox/chats-messagebox';
 import { CallsCallboxPage } from '../calls-callbox/calls-callbox';
 import { ComponentactionsProvider } from '../../providers/componentactions/componentactions';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
+import { Page } from 'ionic-angular/navigation/nav-util';
+import { OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit, AfterViewInit {
 
   constructor(public navCtrl: NavController, private modalCtrl: ModalController,
     private componentAction: ComponentactionsProvider) {
@@ -21,17 +23,26 @@ export class HomePage {
   }
 
   fabItems(fabItem: string, fab: FabContainer) {
+    let pageToOpen: Page;
     switch (fabItem) {
-      case "settings": this.navCtrl.push(SettingsPage); this.componentAction.fabClose(fab);
+      case "settings":
+        this.navCtrl.push(SettingsPage);
         break;
-      case "posts": this.navCtrl.push(PostsPage); this.componentAction.fabClose(fab);
+      case "posts":
+        pageToOpen = PostsPage;
         break;
-      case "notifications": this.navCtrl.push(NotificationsPage); this.componentAction.fabClose(fab);
+      case "notifications":
+        this.navCtrl.push(NotificationsPage);
         break;
-      case "contacts": this.navCtrl.push(ContactPage); this.componentAction.fabClose(fab);
+      case "contacts":
+        this.navCtrl.push(ContactPage);
         break;
       default:
         break;
+    }
+    if (pageToOpen) {
+      this.modalCtrl.create(pageToOpen).present();
+      this.componentAction.fabClose(fab);
     }
   }
 
@@ -56,5 +67,13 @@ export class HomePage {
       //infiniteScroll.complete();
       this.componentAction.doInfiniteComplete(infiniteScroll);
     }, 500);
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  ngAfterViewInit(): void {
+    
   }
 }

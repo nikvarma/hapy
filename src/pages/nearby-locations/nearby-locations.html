@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-searchbar [(ngModel)]="autocomplete.query" [showCancelButton]="true" (ionInput)="updateSearch()"
+     (ionCancel)="dismissMap()"
+      placeholder="Find your location and select ...">
+    </ion-searchbar>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="margin-0">
+    <ion-item *ngFor="let item of autocompleteItems" (click)="chooseItem(item)">
+      {{ item.description }}
+    </ion-item>
+  </ion-list>
+  <div id="map_canvas" #map_canvas class="map"></div>
+</ion-content>

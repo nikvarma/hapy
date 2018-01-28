@@ -1,18 +1,82 @@
-<!--
-  Generated template for the PostsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>posts</ion-title>
+    <ion-title>Post</ion-title>
+    <ion-buttons end>
+      <button ion-button clear icon-only>
+        <ion-icon name="cog" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismissModal()">
+        <ion-icon item-left name="close" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
 
-<ion-content padding>
+  <ion-list class="padding-0 margin-0">
 
+    <ion-item class="padding-0">
+      <ion-avatar item-start round class="avatar">
+        <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png" />
+      </ion-avatar>
+      <h3 class="post-inline">Allen D'melo</h3>
+      <span class="post-inline" *ngIf="isFeelingAdded">
+        <span> - {{ addFeeling }}</span>
+      </span>
+      <div class="post-all-tags">
+        <span class="post-inline" *ngIf="isLocationAdded">
+          <ion-icon name="locate"></ion-icon> {{ addLocation }}
+        </span>
+
+        <span class="post-text">with</span>
+        <span class="post-inline">-</span>
+        <span class="post-inline">Monti D'melo ,</span>
+        <span class="post-inline">Snoma D'melo</span>
+        <span class="post-inline">Snoma D'melo</span>
+      </div>
+    </ion-item>
+  </ion-list>
+
+
+  <div class="post-container" (keypress)="postWritting($event)" data-placeholder="Share your mind storys...." placeholder="Share your mind storys...."
+    contenteditable="true"></div>
 </ion-content>
+
+<ion-footer>
+  <ion-list text-center class="margin-0 post-footer-icon">
+
+    <button ion-button (click)="emojiAdd()" clear icon-only>
+      <ion-icon name="happy"></ion-icon>
+    </button>
+
+    <button ion-button clear icon-only (click)="postLocation()" class="navigate navigate-color">
+      <ion-icon name="pin"></ion-icon>
+    </button>
+
+
+    <button ion-button clear (click)="postColor()" icon-only>
+      <ion-icon name="color-fill"></ion-icon>
+    </button>
+
+    <button ion-button clear icon-only (click)="postImage()" class="image image-color">
+      <ion-icon name="images"></ion-icon>
+    </button>
+    <button ion-button clear (click)="postVideo()" icon-only>
+      <ion-icon name="videocam"></ion-icon>
+    </button>
+
+    <button ion-button clear icon-only (click)="postContact()" class="contact contact-color">
+      <ion-icon name="contact"></ion-icon>
+    </button>
+    <button ion-button clear (click)="publishPost($event)">
+      Post
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-list>
+
+  <div>
+  </div>
+</ion-footer>

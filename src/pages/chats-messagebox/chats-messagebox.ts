@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular/components/action-sheet/action-sheet-controller';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 
-/**
- * Generated class for the ChatsMessageboxPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-chats-messagebox',
@@ -24,7 +17,7 @@ export class ChatsMessageboxPage {
     private actionSheetCtrl: ActionSheetController, private viewCtrl: ViewController) {
     this.uname = navParams.get("uname");
     this.uid = navParams.get("uid");
-    this.chatBox.push({chatBox: ""});
+    this.chatBox.push({ chatBox: "" });
   }
 
   userInfo(): void {
@@ -33,6 +26,12 @@ export class ChatsMessageboxPage {
 
   dismissModal(): void {
     this.viewCtrl.dismiss();
+  }
+
+  sendChat(event: Event): boolean {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
   }
 
   selectOption(): void {
@@ -94,7 +93,7 @@ export class ChatsMessageboxPage {
   }
 
   tapEvent(e): void {
-    
+
   }
 
 }

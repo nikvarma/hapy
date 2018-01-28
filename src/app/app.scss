@@ -16,7 +16,7 @@
 // automatically applied to the <body> element in the app.
 
 $primary-bg-color: #006064;
-$secondary-bg-color: #0cc2d2;
+$secondary-bg-color: #27e4ea;//#0cc2d2
 $primary-font-color: #ffffff;
 $secondary-font-color: #333;
 
@@ -49,6 +49,7 @@ $secondary-font-color: #333;
 .font-xsmall {
     font-size: .9rem;
 }
+
 
 .font-small {
     font-size: 1.1rem !important;
@@ -106,6 +107,33 @@ $actionsheet-color: #424242;
     }
 }
 
+.post-footer-icon {
+    ion-icon {
+        padding: 0 0.3em;
+    }
+}
+
+.post-all-tags {
+    white-space: normal;
+}
+
+.post-container {
+    min-height: 400px;
+    padding: .9em;
+    margin: .5em auto;
+}
+
+.post-inline, .post-text {
+    display: inline;
+    font-size: .8em;
+}
+
+.item .post-inline {
+    font-weight: 500;
+}
+
+
+
 .contact {
     &.contact-color {
         color: $actionsheet-color;
@@ -129,6 +157,10 @@ $actionsheet-color: #424242;
     min-width: 100%;
     height: auto;
     max-height: 240px;
+}
+
+.font-emoji {
+    font-size: 3.5rem;
 }
 
 .font-medium {

@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My Feeling</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="selectedEmoji()" color="light">
+        Clear
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let emoji of emojiList; let i = index" col-2>
+        <span (click)="selectedEmoji(emoji.emoji)" class="font-emoji">{{ emoji.emoji }}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

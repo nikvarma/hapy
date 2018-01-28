@@ -4,9 +4,9 @@ keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -valid
 keytool -genkey -v -keystore hapy-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias hapy -- 
 
 
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore hapy-release-key.jks android-release-unsigned.apk my-alias
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore C:\Users\hapy\Desktop\ionic-build\hapy-release-key.jks C:\Users\hapy\Desktop\ionic-build\android-release-unsigned.apk HAPY
 
 
-zipalign -v 4 C:\Users\Administrator\Desktop\ionic-android-key\oldkey-jks\app-release-unsigned.apk C:\Users\Administrator\Desktop\ionic-android-key\oldkey-jks\Hapy.apk
+zipalign -v 4 C:\Users\hapy\Desktop\ionic-build\android-release-unsigned.apk C:\Users\hapy\Desktop\ionic-build\Hapy.apk
 
-apksigner verify C:\Users\Administrator\Desktop\ionic-android-key\oldkey-jks\Hapy.apk
+apksigner verify C:\Users\hapy\Desktop\ionic-build\Hapy.apk

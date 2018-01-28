@@ -1,0 +1,9 @@
+page-nearby-locations {
+    a[title="Click to see this area on Google Maps"] {
+        display: none !important;
+    }
+    .map {
+        height: 100%;
+        display: none;
+    }
+}
