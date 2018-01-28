@@ -67,7 +67,7 @@ export class PostsPage {
         postContent.style.background = data.bgcolor;
         postContent.style.color = "white";
       } else {
-        postContent.style.background = "transprent";
+        postContent.style.background = "transparent";
         postContent.style.color = "inherit";
       }
       console.log(data);
@@ -111,6 +111,7 @@ export class PostsPage {
     let vidoAlert = this.alertCtrl.create({
       title: "Video",
       message: "Record Video or Slect from gallary",
+      cssClass: "comman-alert",
       buttons: [
         {
           text: "Record",
@@ -133,6 +134,7 @@ export class PostsPage {
     let imageAlert = this.alertCtrl.create({
       title: "Images",
       message: "Select image or open camera",
+      cssClass: "comman-alert",
       buttons: [
         {
           text: "Camera",
