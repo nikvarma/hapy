@@ -1,0 +1,32 @@
+{
+  "name": "hapy-api",
+  "version": "0.0.1",
+  "description": "Hapy API is a middleware which help into exchange the data from client side to server side and vise and versa.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikvarma/hapy-node.git"
+  },
+  "keywords": [
+    "HAPY",
+    "API"
+  ],
+  "author": "HAPY Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nikvarma/hapy-node/issues"
+  },
+  "homepage": "https://github.com/nikvarma/hapy-node#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "mongodb": "^3.0.1",
+    "mongoose": "^5.0.0",
+    "morgan": "^1.9.0",
+    "tedious": "^2.1.5"
+  }
+}

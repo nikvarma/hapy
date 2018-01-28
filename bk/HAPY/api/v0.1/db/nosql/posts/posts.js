@@ -1,0 +1,5 @@
+var posts = {
+    getPostsById: function() {
+        
+    }
+}
