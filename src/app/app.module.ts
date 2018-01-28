@@ -39,6 +39,8 @@ import { LocationsharingPageModule } from '../pages/locationsharing/locationshar
 import { Firebase } from "@ionic-native/firebase";
 import { BackgroundcolorPickerPageModule } from '../pages/backgroundcolor-picker/backgroundcolor-picker.module';
 import { SelectmediasPageModule } from '../pages/selectmedias/selectmedias.module';
+import { ImagePicker } from '@ionic-native/image-picker';
+
 
 @NgModule({
   declarations: [
@@ -94,6 +96,7 @@ import { SelectmediasPageModule } from '../pages/selectmedias/selectmedias.modul
     Facebook,
     Firebase,
     HttpClient,
+    ImagePicker,
     InAppBrowser,
     StatusBar,
     SplashScreen,

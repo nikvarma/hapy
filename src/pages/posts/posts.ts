@@ -6,6 +6,7 @@ import { EmojisPage } from '../emojis/emojis';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { NearbyLocationsPage } from '../nearby-locations/nearby-locations';
 import { BackgroundcolorPickerPage } from '../backgroundcolor-picker/backgroundcolor-picker';
+import { SelectmediasPage } from '../selectmedias/selectmedias';
 
 @IonicPage()
 @Component({
@@ -145,7 +146,8 @@ export class PostsPage {
         {
           text: "Gallary",
           handler: () => {
-
+            let media = this.modalCtrl.create(SelectmediasPage);
+            media.present();
           }
         }
       ]
