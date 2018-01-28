@@ -1,0 +1,2 @@
+C:\Users\hapy>keytool -exportcert -alias HAPY -keystore C:\Users\hapy\Desktop\ionic-build\hapy-release-key.jks | C:\OpenSSL-Win64\bin\openssl sha1 -binary | C:\OpenSSL-Win64\bin\openssl base64
+Enter keystore password:  12nikvar
