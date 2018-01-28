@@ -5,6 +5,7 @@ import { AlertController } from 'ionic-angular/components/alert/alert-controller
 import { EmojisPage } from '../emojis/emojis';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { NearbyLocationsPage } from '../nearby-locations/nearby-locations';
+import { BackgroundcolorPickerPage } from '../backgroundcolor-picker/backgroundcolor-picker';
 
 @IonicPage()
 @Component({
@@ -16,6 +17,8 @@ export class PostsPage {
   isFeelingAdded: boolean = false;
   addLocation: string;
   isLocationAdded: boolean = false;
+  addBgColor: string;
+  isBgColorAdded: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController,
     private alertCtrl: AlertController, private modalCtrl: ModalController) {
   }
@@ -56,7 +59,20 @@ export class PostsPage {
   }
 
   postColor(): void {
-
+    let bgColor = this.modalCtrl.create(BackgroundcolorPickerPage);
+    bgColor.onDidDismiss(data => {
+      let postContent = document.getElementById("postcontainer");
+      if (typeof data != "undefined") {
+        //this.addBgColor = "style='background:" + data.bgcolor + "';color: white;";
+        postContent.style.background = data.bgcolor;
+        postContent.style.color = "white";
+      } else {
+        postContent.style.background = "transprent";
+        postContent.style.color = "inherit";
+      }
+      console.log(data);
+    });
+    bgColor.present();
   }
 
   emojiAdd(): void {

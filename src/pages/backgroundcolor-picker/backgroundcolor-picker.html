@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title></ion-title> -->
+    <ion-buttons end>
+      <button ion-button icon-only (click)="selectedBgColor()" color="light">
+        Clear
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let bgColor of bgColorList; let i = index" class="full-width">
+    <ion-card-content text-center (click)="setBgColor(bgColor)" class="mh-300 bg-card" [ngStyle]="{ 'background': bgColor.bgcolor, 'color': 'white'}">
+      <span>{{ bgColor.name }}</span>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

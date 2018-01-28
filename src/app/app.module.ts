@@ -37,6 +37,7 @@ import { EmojisPageModule } from '../pages/emojis/emojis.module';
 import { NearbyLocationsPageModule } from '../pages/nearby-locations/nearby-locations.module';
 import { LocationsharingPageModule } from '../pages/locationsharing/locationsharing.module';
 import { Firebase } from "@ionic-native/firebase";
+import { BackgroundcolorPickerPageModule } from '../pages/backgroundcolor-picker/backgroundcolor-picker.module';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { Firebase } from "@ionic-native/firebase";
   ],
   imports: [
     AuthLoginPageModule,
+    BackgroundcolorPickerPageModule,
     BrowserModule,
     CallsPageModule,
     CallsCallboxPageModule,
