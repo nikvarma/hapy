@@ -38,6 +38,7 @@ import { NearbyLocationsPageModule } from '../pages/nearby-locations/nearby-loca
 import { LocationsharingPageModule } from '../pages/locationsharing/locationsharing.module';
 import { Firebase } from "@ionic-native/firebase";
 import { BackgroundcolorPickerPageModule } from '../pages/backgroundcolor-picker/backgroundcolor-picker.module';
+import { SelectmediasPageModule } from '../pages/selectmedias/selectmedias.module';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { BackgroundcolorPickerPageModule } from '../pages/backgroundcolor-picker
     NotificationsPageModule,
     PostsPageModule,
     SearchPageModule,
+    SelectmediasPageModule,
     SettingsPageModule,
     IonicModule.forRoot(MyApp, {
       scrollAssist: true,

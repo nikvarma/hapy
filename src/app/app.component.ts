@@ -8,7 +8,7 @@ import { SplashPage } from '../pages/splash/splash';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { BaseDB } from '../providers/sqlDB/base';
 import { AuthLoginPage } from '../pages/auth-login/auth-login';
-import { NearbyLocationsPage } from '../pages/nearby-locations/nearby-locations';
+import { SelectmediasPage } from '../pages/selectmedias/selectmedias';
 
 @Component({
   templateUrl: 'app.html'
@@ -31,7 +31,7 @@ export class MyApp {
       authCheck.then((res) => {
         if (res != null) {
           if (typeof res === "object") {
-            this.rootPage = TabsPage;
+            this.rootPage = SelectmediasPage; //TabsPage;
           } else {
             this.rootPage = AuthLoginPage;
           }
