@@ -40,6 +40,8 @@ import { Firebase } from "@ionic-native/firebase";
 import { BackgroundcolorPickerPageModule } from '../pages/backgroundcolor-picker/backgroundcolor-picker.module';
 import { SelectmediasPageModule } from '../pages/selectmedias/selectmedias.module';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { Camera } from '@ionic-native/camera';
+import { MediaviewerPage } from '../pages/mediaviewer/mediaviewer';
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     AboutPage,
     ContactPage,
     HomePage,
+    MediaviewerPage,
     SplashPage,
     TabsPage
   ],
@@ -87,11 +90,13 @@ import { ImagePicker } from '@ionic-native/image-picker';
     AboutPage,
     ContactPage,
     HomePage,
+    MediaviewerPage,
     SplashPage,
     TabsPage
   ],
   providers: [
     BaseDB,
+    Camera,
     ComponentactionsProvider,
     Facebook,
     Firebase,

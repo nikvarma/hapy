@@ -7,11 +7,13 @@ import { ModalController } from 'ionic-angular/components/modal/modal-controller
 import { NearbyLocationsPage } from '../nearby-locations/nearby-locations';
 import { BackgroundcolorPickerPage } from '../backgroundcolor-picker/backgroundcolor-picker';
 import { SelectmediasPage } from '../selectmedias/selectmedias';
+import { MediaviewersmallComponent } from '../../components/mediaviewersmall/mediaviewersmall';
 
 @IonicPage()
 @Component({
   selector: 'page-posts',
   templateUrl: 'posts.html',
+  viewProviders: [MediaviewersmallComponent]
 })
 export class PostsPage {
   addFeeling: string;
@@ -20,6 +22,7 @@ export class PostsPage {
   isLocationAdded: boolean = false;
   addBgColor: string;
   isBgColorAdded: boolean = false;
+  mediaList: any[] = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController,
     private alertCtrl: AlertController, private modalCtrl: ModalController) {
   }
@@ -140,7 +143,16 @@ export class PostsPage {
         {
           text: "Camera",
           handler: () => {
-
+            let media = this.modalCtrl.create(SelectmediasPage, {
+              mediatype: "opencamera"
+            });
+            media.present();
+            media.onDidDismiss(data => {
+              if (data.status == 1) {
+                this.mediaList.push({ media: data.lib, type: "images" });
+              }
+              console.log(data);
+            });
           }
         },
         {
@@ -151,7 +163,8 @@ export class PostsPage {
             });
             media.present();
             media.onDidDismiss(data => {
-              alert(data);
+              this.mediaList.push({ media: data.lib, type: "images" });
+              console.log(data);
             });
           }
         }
