@@ -3,6 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import {
+  MediaCapture, MediaFile, MediaFileData, CaptureVideoOptions, CaptureError,
+  CaptureAudioOptions
+} from '@ionic-native/media-capture';
 
 
 @IonicPage()
@@ -18,7 +22,7 @@ export class SelectmediasPage implements OnInit {
   isImageActive: boolean = false;
   accessFor: string = null;
   constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker,
-    private viewCtrl: ViewController, private camera: Camera) {
+    private viewCtrl: ViewController, private camera: Camera, private mediaCapture: MediaCapture) {
     this.title = "Media";
     this.isImageActive = false;
   }
@@ -90,7 +94,7 @@ export class SelectmediasPage implements OnInit {
           });
           break;
         case "video":
-          this.getImages().then(res => {
+          this.getVideo().then(res => {
             resolve(res);
           });
           break;
@@ -118,10 +122,22 @@ export class SelectmediasPage implements OnInit {
       }
       this.camera.getPicture(cameraOptions).then((res) => {
         let png = "data:image/png;base64,";
-        this.mediaList.push({ image: png + res });
+        let encodeString = png + res;
+        this.mediaList.push({ image: encodeString, type: "image" });
         resolve({ status: 1, lib: this.mediaList });
       }).catch(err => {
         reject({ status: 0, error: "error while accessing the file.", syserr: err });
+      });
+    });
+  }
+
+  getVideo(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let videoOption: CaptureVideoOptions = {
+        limit: 5
+      };
+      this.mediaCapture.captureVideo(videoOption).then((res) => {
+        
       });
     });
   }
@@ -130,10 +146,10 @@ export class SelectmediasPage implements OnInit {
     return new Promise((resolve, reject) => {
       let option: ImagePickerOptions = {
         maximumImagesCount: 15
-      }
+      };
       this.imagePicker.getPictures(option).then((results) => {
         for (var i = 0; i < results.length; i++) {
-          this.mediaList.push({ image: results[i] });
+          this.mediaList.push({ image: results[i], type: "image" });
         }
         resolve({ status: 1, lib: this.mediaList });
       }, (err) => {

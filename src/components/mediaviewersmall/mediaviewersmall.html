@@ -1,12 +1,21 @@
-<div>
-  <ion-slides>
-    <ion-slide>
-      <h1>Slide 1</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 2</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 3</h1>
-    </ion-slide>
-  </ion-slides>
+<div class="image-slider">
+  <ion-list>
+    <ion-item-sliding (ionDrag)="logDrag($event, i)" *ngFor="let media of medialist; let i = index">
+      <ion-item class="post-image" no-padding>
+        <img *ngIf="media.type == 'image'" [src]="media.src" [attr.alt]="media.name" />
+
+        <video *ngIf="media.type == 'video'" class="img-auto" controls controlsList="nodownload">
+          <source [src]="media.src" type="video/mp4">
+        </video>
+
+        <ion-buttons class="image-card-button" item-end>
+          <button (click)="logDrag($event, i)" small ion-button icon-only>
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item-options side="left">
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</div>

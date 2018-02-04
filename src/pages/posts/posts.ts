@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
@@ -12,10 +12,10 @@ import { MediaviewersmallComponent } from '../../components/mediaviewersmall/med
 @IonicPage()
 @Component({
   selector: 'page-posts',
-  templateUrl: 'posts.html',
-  viewProviders: [MediaviewersmallComponent]
+  templateUrl: 'posts.html'
 })
-export class PostsPage {
+export class PostsPage implements OnInit {
+
   addFeeling: string;
   isFeelingAdded: boolean = false;
   addLocation: string;
@@ -23,8 +23,34 @@ export class PostsPage {
   addBgColor: string;
   isBgColorAdded: boolean = false;
   mediaList: any[] = [];
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController,
     private alertCtrl: AlertController, private modalCtrl: ModalController) {
+    this.mediaList = [
+      {
+        src: "https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png",
+        name: "advance-card-bttf",
+        type: "image"
+      },
+      {
+        src: "https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png",
+        name: "advance-card-bttf",
+        type: "image"
+      },
+      {
+        src: "https://www.w3schools.com/html/mov_bbb.mp4",
+        name: "mov_bbb",
+        type: "video"
+      }
+    ];
+  }
+
+  removeIndex(event) {
+    this.mediaList.splice(event.index, 1);
+  }
+
+  ngOnInit(): void {
+
   }
 
   dismissModal() {
@@ -74,7 +100,6 @@ export class PostsPage {
         postContent.style.background = "transparent";
         postContent.style.color = "inherit";
       }
-      console.log(data);
     });
     bgColor.present();
   }
@@ -120,13 +145,35 @@ export class PostsPage {
         {
           text: "Record",
           handler: () => {
-
+            let media = this.modalCtrl.create(SelectmediasPage, {
+              mediatype: "recordvideo"
+            });
+            media.present();
+            media.onDidDismiss(data => {
+              if (data.status == 1) {
+                data.lib.forEach(element => {
+                  this.mediaList.push({ src: element.image, name: "", type: element.type });
+                });
+              }
+              console.log(data);
+            });
           }
         },
         {
           text: "Gallary",
           handler: () => {
-
+            let media = this.modalCtrl.create(SelectmediasPage, {
+              mediatype: "video"
+            });
+            media.present();
+            media.onDidDismiss(data => {
+              if (data.status == 1) {
+                data.lib.forEach(element => {
+                  this.mediaList.push({ src: element.video, name: "", type: element.type });
+                });
+              }
+              console.log(data);
+            });
           }
         }
       ]
@@ -149,7 +196,9 @@ export class PostsPage {
             media.present();
             media.onDidDismiss(data => {
               if (data.status == 1) {
-                this.mediaList.push({ media: data.lib, type: "images" });
+                data.lib.forEach(element => {
+                  this.mediaList.push({ src: element.image, name: "", type: element.type });
+                });
               }
               console.log(data);
             });
@@ -163,7 +212,10 @@ export class PostsPage {
             });
             media.present();
             media.onDidDismiss(data => {
-              this.mediaList.push({ media: data.lib, type: "images" });
+              //this.mediaList.push({ media: data.lib, type: "images" });
+              data.lib.forEach(element => {
+                this.mediaList.push({ src: element.image, name: "", type: element.type });
+              });
               console.log(data);
             });
           }

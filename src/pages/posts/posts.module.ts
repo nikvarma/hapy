@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { PostsPage } from './posts';
-import { ComponentsModule } from '../../components/components.module';
+import { MediaviewersmallComponent } from '../../components/mediaviewersmall/mediaviewersmall';
 
 @NgModule({
   declarations: [
     PostsPage,
+    MediaviewersmallComponent
   ],
   imports: [
-    ComponentsModule,
     IonicPageModule.forChild(PostsPage),
   ],
 })

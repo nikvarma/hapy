@@ -41,11 +41,10 @@
   </ion-list>
 
 
-  <div class="post-container" id="postcontainer" #postcontainer (keypress)="postWritting($event)" data-placeholder="Share your mind storys...." 
-  placeholder="Share your mind storys...."
-    contenteditable="true"></div>
-    
-  <mediaviewersmall [medialist]="mediaList"></mediaviewersmall>
+  <div class="post-container" id="postcontainer" #postcontainer (keypress)="postWritting($event)" data-placeholder="Share your mind storys...."
+    placeholder="Share your mind storys...." contenteditable="true"></div>
+  <div>{{ mediaList | json }}</div>
+  <mediaviewersmall [medialist]="mediaList" (slideEventRemove)="removeIndex($event)"></mediaviewersmall>
 </ion-content>
 
 <ion-footer>
